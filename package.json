@@ -17,11 +17,13 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "5.2.3",
     "gatsby": "^5.7.0",
+    "gatsby-plugin-sass": "^6.7.0",
     "gatsby-plugin-use-query-params": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
     "react-select": "^5.7.0",
+    "sass": "^1.58.3",
     "use-query-params": "^2.2.0"
   },
   "repository": {

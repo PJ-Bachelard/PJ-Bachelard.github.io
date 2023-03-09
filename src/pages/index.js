@@ -1,6 +1,5 @@
 import * as React from "react";
 import Select, { components } from "react-select";
-import { navigate } from "gatsby";
 
 const COLORS = {
   ROGUE: "#FFF468",
@@ -294,13 +293,15 @@ export default function Home({ location }) {
   let authorizedDebuffsParam = [];
   let unauthorizedDebuffsParam = [];
   try {
-    authorizedDebuffsParam = JSON.parse(params.get("authorized")) ?? [];
+    authorizedDebuffsParam =
+      JSON.parse(decodeURIComponent(params.get("authorized"))) ?? [];
   } catch (ignoreError) {
     authorizedDebuffsParam = [];
   }
 
   try {
-    unauthorizedDebuffsParam = JSON.parse(params.get("unauthorized")) ?? [];
+    unauthorizedDebuffsParam =
+      JSON.parse(decodeURIComponent(params.get("unauthorized"))) ?? [];
   } catch (ignoreError) {
     unauthorizedDebuffsParam = [];
   }
@@ -343,29 +344,30 @@ export default function Home({ location }) {
     }, [])
   );
 
-  // React.useEffect(() => {
-  //   setLocalUrl(window.location.href);
-  // }, []);
-
   React.useEffect(() => {
     window.history.replaceState({}, "", localUrl);
   }, [localUrl]);
 
   React.useEffect(() => {
-    setLocalUrl(
-      `${location.protocol}//${
-        location.host
-      }/?authorized=[${authorizedDebuffs.map((item) => {
-        if (item) {
-          return DEBUFFS.findIndex(({ name }) => name === item.value);
-        }
-        return "null";
-      })}]&unauthorized=[${unauthorizedDebuffs.map((item) => {
+    const authorizedArray = encodeURIComponent(
+      `[${authorizedDebuffs.map((item) => {
         if (item) {
           return DEBUFFS.findIndex(({ name }) => name === item.value);
         }
         return "null";
       })}]`
+    );
+
+    const unauthorizedArray = encodeURIComponent(
+      `[${unauthorizedDebuffs.map((item) => {
+        if (item) {
+          return DEBUFFS.findIndex(({ name }) => name === item.value);
+        }
+        return "null";
+      })}]`
+    );
+    setLocalUrl(
+      `${location.protocol}//${location.host}/?authorized=${authorizedArray}&unauthorized=${unauthorizedArray}`
     );
   }, [authorizedDebuffs, unauthorizedDebuffs]);
 
@@ -376,8 +378,8 @@ export default function Home({ location }) {
     color,
   }));
   return (
-    <div className="d-flex justify-content-around m-5">
-      <div>
+    <div className="wrapper d-flex flex-column flex-lg-row justify-content-center m-lg-5">
+      <div className="me-5">
         <table className="table" cellPadding="0" cellSpacing="0">
           <thead>
             <tr>
@@ -403,7 +405,9 @@ export default function Home({ location }) {
                       isSearchable
                       options={debuffsOptions}
                       styles={{
-                        container: (styles) => ({ ...styles, width: "250px" }),
+                        container: (styles) => ({ ...styles, width: "350px" }),
+                        menu: (styles) => ({ ...styles, width: "350px" }),
+                        menuList: (styles) => ({ ...styles, width: "350px" }),
                       }}
                       placeholder="Sélectionnez un débuff"
                       Option
@@ -423,7 +427,7 @@ export default function Home({ location }) {
           </tbody>
         </table>
       </div>
-      <div>
+      <div className="me-5">
         <table className="table" cellPadding="0" cellSpacing="0">
           <thead>
             <tr>
@@ -449,7 +453,9 @@ export default function Home({ location }) {
                       isSearchable
                       options={debuffsOptions}
                       styles={{
-                        container: (styles) => ({ ...styles, width: "250px" }),
+                        container: (styles) => ({ ...styles, width: "350px" }),
+                        menu: (styles) => ({ ...styles, width: "350px" }),
+                        menuList: (styles) => ({ ...styles, width: "350px" }),
                       }}
                       placeholder="Sélectionnez un débuff"
                       Option
@@ -486,10 +492,10 @@ export default function Home({ location }) {
           </tbody>
         </table>
       </div>
-      <div>
+      <div className="text-center">
         <button
           type="button"
-          className="btn btn-success"
+          className="btn btn-success btn-lg"
           data-bs-toggle="modal"
           data-bs-target="#shareModal"
         >

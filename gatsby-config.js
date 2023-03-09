@@ -8,5 +8,5 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  plugins: ["gatsby-plugin-use-query-params"],
+  plugins: ["gatsby-plugin-use-query-params", "gatsby-plugin-sass"],
 };
