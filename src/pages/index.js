@@ -227,6 +227,17 @@ const DEBUFFS = [
     name: "Pourfendre",
     color: COLORS.WARRIOR,
   },
+  {
+    imageUrl:
+      "https://wow.zamimg.com/images/wow/icons/large/spell_nature_insectswarm.jpg",
+    name: "Essaim d'insectes",
+    color: COLORS.DRUID,
+  },
+  {
+    imageUrl: "https://wow.zamimg.com/images/wow/icons/large/inv_axe_12.jpg",
+    name: "Annihilateur",
+    color: COLORS.BLACK,
+  },
 ];
 
 const AUTHORIZED_DEBUFFS_INIT_STATE = [
