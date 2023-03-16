@@ -847,7 +847,11 @@ export default function Home({ location }) {
                                     value: `\u200b`,
                                   },
                                   ...authFields,
-                                  ...range(authAdditionalFields).map(() => ({
+                                  ...range(
+                                    authAdditionalFields !== 3
+                                      ? authAdditionalFields
+                                      : 0
+                                  ).map(() => ({
                                     name: "\u200b",
                                     value: "\u200b",
                                     inline: true,
@@ -857,7 +861,11 @@ export default function Home({ location }) {
                                     value: "\u200b",
                                   },
                                   ...unauthFields,
-                                  ...range(unauthAdditionalFields).map(() => ({
+                                  ...range(
+                                    unauthAdditionalFields !== 3
+                                      ? unauthAdditionalFields
+                                      : 0
+                                  ).map(() => ({
                                     name: "\u200b",
                                     value: "\u200b",
                                     inline: true,
