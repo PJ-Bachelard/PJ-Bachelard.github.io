@@ -741,7 +741,7 @@ export default function Home({ location }) {
                                         value.discordId
                                       } **${value.shortName.substring(0, 13)}**`
                                   )
-                                  .join("\n") + "\n\n",
+                                  .join("\n") + "\n\u200b\n",
                               inline: true,
                             };
                           }
@@ -784,7 +784,7 @@ export default function Home({ location }) {
                                         value.discordId
                                       } **${value.shortName.substring(0, 13)}**`
                                   )
-                                  .join("\n") + "\n\n",
+                                  .join("\n") + "\n\u200b\n",
                               inline: true,
                             };
                           }
@@ -843,19 +843,8 @@ export default function Home({ location }) {
                               {
                                 fields: [
                                   {
-                                    name: "\u200b",
-                                    value: "\u200b",
-                                    inline: true,
-                                  },
-                                  {
                                     name: ":white_check_mark: **Autorisées**",
                                     value: `\u200b`,
-                                    inline: true,
-                                  },
-                                  {
-                                    name: "\u200b",
-                                    value: "\u200b",
-                                    inline: true,
                                   },
                                   ...authFields,
                                   ...range(authAdditionalFields).map(() => ({
@@ -864,23 +853,8 @@ export default function Home({ location }) {
                                     inline: true,
                                   })),
                                   {
-                                    name: "\u200b",
-                                    value: "\u200b",
-                                  },
-                                  {
-                                    name: "\u200b",
-                                    value: "\u200b",
-                                    inline: true,
-                                  },
-                                  {
                                     name: ":x: **Interdits**",
                                     value: "\u200b",
-                                    inline: true,
-                                  },
-                                  {
-                                    name: "\u200b",
-                                    value: "\u200b",
-                                    inline: true,
                                   },
                                   ...unauthFields,
                                   ...range(unauthAdditionalFields).map(() => ({
