@@ -849,7 +849,7 @@ export default function Home({ location }) {
                                   },
                                   {
                                     name: ":white_check_mark: **Autorisées**",
-                                    value: "\u200b",
+                                    value: `\u200b`,
                                     inline: true,
                                   },
                                   {
@@ -889,6 +889,10 @@ export default function Home({ location }) {
                                     inline: true,
                                   })),
                                 ],
+                              },
+                              {
+                                title: ":desktop: Webview",
+                                url: localUrl,
                               },
                             ],
                           }), // body data type must match "Content-Type" header
