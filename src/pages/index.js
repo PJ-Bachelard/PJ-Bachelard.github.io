@@ -732,7 +732,7 @@ export default function Home({ location }) {
                         (currentValue) => {
                           if (currentValue) {
                             return {
-                              name: `**__${currentValue.label}__** :`,
+                              name: `**__${currentValue.label}__** (${currentValue.values.length}) :`,
                               value:
                                 currentValue.values
                                   .map(
@@ -770,10 +770,16 @@ export default function Home({ location }) {
                         },
                         {}
                       );
+
+                      let unauthorizedCount = 0;
                       const unauthorizedStr = map(
                         unauthorizedValues,
                         (currentValue) => {
+                          unauthorizedCount++;
                           if (currentValue) {
+                            const isLastCategory =
+                              unauthorizedCount >=
+                              Object.keys(unauthorizedValues).length;
                             return {
                               name: `**__${currentValue.label}__** :`,
                               value:
@@ -784,7 +790,9 @@ export default function Home({ location }) {
                                         value.discordId
                                       } **${value.shortName.substring(0, 13)}**`
                                   )
-                                  .join("\n") + "\n\u200b\n",
+                                  .join("\n") +
+                                "\n" +
+                                (isLastCategory ? "" : "\u200b"),
                               inline: true,
                             };
                           }
@@ -816,34 +824,10 @@ export default function Home({ location }) {
                           },
                           body: JSON.stringify({
                             embeds: [
-                              // {
-                              //   color: 7844437,
-                              //   title: ":white_check_mark: **Autorisées**",
-                              //   fields: [
-                              //     ...authFields,
-                              //     ...range(authAdditionalFields).map(() => ({
-                              //       name: "\u200b",
-                              //       value: "\u200b",
-                              //       inline: true,
-                              //     })),
-                              //   ],
-                              // },
-                              // {
-                              //   color: 14495300,
-                              //   title: ":x: **Interdits**",
-                              //   fields: [
-                              //     ...unauthFields,
-                              //     ...range(unauthAdditionalFields).map(() => ({
-                              //       name: "\u200b",
-                              //       value: "\u200b",
-                              //       inline: true,
-                              //     })),
-                              //   ],
-                              // },
                               {
                                 fields: [
                                   {
-                                    name: ":white_check_mark: **Autorisées**",
+                                    name: `:white_check_mark: **AUTORISÉS** (${authorizedDebuffs.length})`,
                                     value: `\u200b`,
                                   },
                                   ...authFields,
@@ -857,7 +841,7 @@ export default function Home({ location }) {
                                     inline: true,
                                   })),
                                   {
-                                    name: ":x: **Interdits**",
+                                    name: `:x: **INTERDITS**`,
                                     value: "\u200b",
                                   },
                                   ...unauthFields,
@@ -870,11 +854,12 @@ export default function Home({ location }) {
                                     value: "\u200b",
                                     inline: true,
                                   })),
+                                  {
+                                    name: "\u200b",
+                                    value: `:desktop: **[webview](${localUrl})**`,
+                                    inline: true,
+                                  },
                                 ],
-                              },
-                              {
-                                title: ":desktop: Webview",
-                                url: localUrl,
                               },
                             ],
                           }), // body data type must match "Content-Type" header
