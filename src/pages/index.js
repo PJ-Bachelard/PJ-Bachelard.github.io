@@ -771,15 +771,25 @@ export default function Home({ location }) {
                         {}
                       );
 
+                      const MAX_COLUMNS = 3;
+
                       let unauthorizedCount = 0;
                       const unauthorizedStr = map(
                         unauthorizedValues,
                         (currentValue) => {
                           unauthorizedCount++;
                           if (currentValue) {
+                            const reminder =
+                              Object.keys(unauthorizedValues).length %
+                              MAX_COLUMNS;
                             const isLastCategory =
-                              unauthorizedCount >=
-                              Object.keys(unauthorizedValues).length;
+                              reminder === 0
+                                ? unauthorizedCount >=
+                                  Object.keys(unauthorizedValues).length -
+                                    MAX_COLUMNS
+                                : unauthorizedCount >=
+                                  Object.keys(unauthorizedValues).length -
+                                    reminder;
                             return {
                               name: `**__${currentValue.label}__** :`,
                               value:
@@ -806,8 +816,6 @@ export default function Home({ location }) {
                         unauthorizedStr.length > 0 ? [...unauthorizedStr] : [];
 
                       const fields = [...authFields, ...unauthFields];
-
-                      const MAX_COLUMNS = 3;
 
                       const authAdditionalFields =
                         MAX_COLUMNS - (authFields.length % MAX_COLUMNS);
