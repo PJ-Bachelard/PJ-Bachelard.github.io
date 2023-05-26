@@ -1,4 +1,5 @@
 import { map } from "lodash";
+import { each } from "lodash";
 import { range } from "lodash";
 import * as React from "react";
 import Select, { components } from "react-select";
@@ -36,6 +37,7 @@ const DEBUFFS = [
     color: COLORS.BLACK,
     discordId: "<:spell_nature_cyclone:1085608297849172078>",
     class: CLASSES.WARRIOR,
+    spellsIds: [21992],
   },
   {
     imageUrl:
@@ -45,6 +47,7 @@ const DEBUFFS = [
     color: COLORS.BLACK,
     discordId: "<:spell_nature_cyclone:1085608297849172078>",
     class: CLASSES.WARRIOR,
+    spellsIds: [27648],
   },
   {
     imageUrl:
@@ -54,6 +57,7 @@ const DEBUFFS = [
     color: COLORS.WARRIOR,
     discordId: "<:ability_warrior_sunder:1085605753487892521>",
     class: CLASSES.WARRIOR,
+    spellsIds: [11597],
   },
   {
     imageUrl:
@@ -63,6 +67,7 @@ const DEBUFFS = [
     color: COLORS.DRUID,
     discordId: "<:spell_nature_faeriefire:1085630741091729518>",
     class: CLASSES.DRUID,
+    spellsIds: [9907],
   },
   {
     imageUrl:
@@ -72,6 +77,7 @@ const DEBUFFS = [
     color: COLORS.HUNT,
     discordId: "<:ability_hunter_snipershot:1085630710259384412>",
     class: CLASSES.HUNT,
+    spellsIds: [14324],
   },
   {
     imageUrl:
@@ -81,6 +87,7 @@ const DEBUFFS = [
     color: COLORS.WARLOCK,
     discordId: "<:spell_shadow_unholystrength:1085631603423850496>",
     class: CLASSES.WARLOCK,
+    spellsIds: [7659],
   },
   {
     imageUrl:
@@ -90,6 +97,7 @@ const DEBUFFS = [
     color: COLORS.WARLOCK,
     discordId: "<:spell_shadow_curseofachimonde:1085631841018593280>",
     class: CLASSES.WARLOCK,
+    spellsIds: [17937],
   },
   {
     imageUrl:
@@ -99,6 +107,7 @@ const DEBUFFS = [
     color: COLORS.WARLOCK,
     discordId: "<:spell_shadow_chilltouch:1085630750864457738>",
     class: CLASSES.WARLOCK,
+    spellsIds: [11722],
   },
   {
     imageUrl:
@@ -108,6 +117,7 @@ const DEBUFFS = [
     color: COLORS.WARLOCK,
     discordId: "<:spell_shadow_shadowbolt:1085630755595624508>",
     class: CLASSES.WARLOCK,
+    spellsIds: [17799, 17794, 17798, 17797, 17800],
   },
   {
     imageUrl:
@@ -117,6 +127,7 @@ const DEBUFFS = [
     color: COLORS.PRIEST,
     discordId: "<:spell_shadow_blackplague:1085630748289159268>",
     class: CLASSES.PRIEST,
+    spellsIds: [15258],
   },
   {
     imageUrl:
@@ -126,6 +137,7 @@ const DEBUFFS = [
     color: COLORS.PRIEST,
     discordId: "<:spell_shadow_siphonmana:1085631302008573982>",
     class: CLASSES.PRIEST,
+    spellsIds: [18807],
   },
   {
     imageUrl:
@@ -135,6 +147,7 @@ const DEBUFFS = [
     color: COLORS.PRIEST,
     discordId: "<:spell_shadow_shadowwordpain:1085630758003167363>",
     class: CLASSES.PRIEST,
+    spellsIds: [10894],
   },
   {
     imageUrl:
@@ -144,6 +157,7 @@ const DEBUFFS = [
     color: COLORS.MAGE,
     discordId: "<:spell_frost_chillingblast:1085631034625900544>",
     class: CLASSES.MAGE,
+    spellsIds: [12579],
   },
   {
     imageUrl:
@@ -153,6 +167,7 @@ const DEBUFFS = [
     color: COLORS.MAGE,
     discordId: "<:spell_fire_soulburn:1085631204054814870>",
     class: CLASSES.MAGE,
+    spellsIds: [22959],
   },
   {
     imageUrl:
@@ -162,6 +177,7 @@ const DEBUFFS = [
     color: COLORS.MAGE,
     discordId: "<:spell_fire_incinerate:1085630726734610495>",
     class: CLASSES.MAGE,
+    spellsIds: [12654],
   },
   {
     imageUrl:
@@ -171,6 +187,7 @@ const DEBUFFS = [
     color: COLORS.WARRIOR,
     discordId: "<:ability_warrior_warcry:1085630715946881125>",
     class: CLASSES.WARRIOR,
+    spellsIds: [11556],
   },
   {
     imageUrl:
@@ -180,6 +197,7 @@ const DEBUFFS = [
     color: COLORS.BLACK,
     discordId: "<:spell_shadow_fingerofdeath:1085631426759774308>",
     class: CLASSES.WARRIOR,
+    spellsIds: [11374],
   },
   {
     imageUrl:
@@ -189,6 +207,7 @@ const DEBUFFS = [
     color: COLORS.PALADIN,
     discordId: "<:spell_holy_healingaura:1085630731671326891>",
     class: CLASSES.PALADIN,
+    spellsIds: [5373],
   },
   {
     imageUrl:
@@ -198,6 +217,7 @@ const DEBUFFS = [
     color: COLORS.PALADIN,
     discordId: "<:spell_holy_righteousnessaura:1085630736956137562>",
     class: CLASSES.PALADIN,
+    spellsIds: [1826],
   },
   {
     imageUrl:
@@ -207,6 +227,7 @@ const DEBUFFS = [
     color: COLORS.WARLOCK,
     discordId: "<:spell_shadow_abominationexplosio:1085642438200270918>",
     class: CLASSES.WARLOCK,
+    spellsIds: [25311],
   },
   {
     imageUrl:
@@ -216,6 +237,7 @@ const DEBUFFS = [
     color: COLORS.BLACK,
     discordId: "<:ability_hunter_pet_bat:1085630707277250590>",
     class: CLASSES.HUNT,
+    spellsIds: [24579],
   },
   {
     imageUrl:
@@ -225,6 +247,7 @@ const DEBUFFS = [
     color: COLORS.BLACK,
     discordId: "<:spell_fire_fireball:1085630724666839090>",
     class: CLASSES.MAGE,
+    spellsIds: [23341],
   },
   {
     imageUrl:
@@ -234,6 +257,7 @@ const DEBUFFS = [
     color: COLORS.PALADIN,
     discordId: "<:spell_holy_innerfire:1085630735341322321>",
     class: CLASSES.PALADIN,
+    spellsIds: [20924],
   },
   {
     imageUrl:
@@ -243,6 +267,7 @@ const DEBUFFS = [
     color: COLORS.DRUID,
     discordId: "<:spell_nature_starfall:1085630743960633456>",
     class: CLASSES.DRUID,
+    spellsIds: [9835],
   },
   {
     imageUrl: "https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg",
@@ -251,6 +276,7 @@ const DEBUFFS = [
     color: COLORS.BLACK,
     discordId: "<:inv_crown_01:1085630720095035442>",
     class: CLASSES.MAGE,
+    spellsIds: [28772],
   },
   {
     imageUrl: "https://wow.zamimg.com/images/wow/icons/large/inv_helmet_05.jpg",
@@ -259,6 +285,7 @@ const DEBUFFS = [
     color: COLORS.BLACK,
     discordId: "<:inv_helmet_05:1085630721479155752>",
     class: CLASSES.HUNT,
+    spellsIds: [23577],
   },
   {
     imageUrl:
@@ -268,6 +295,7 @@ const DEBUFFS = [
     color: COLORS.PRIEST,
     discordId: "<:spell_shadow_unsummonbuilding:1085630763170541638>",
     class: CLASSES.PRIEST,
+    spellsIds: [15286],
   },
   {
     imageUrl:
@@ -277,6 +305,7 @@ const DEBUFFS = [
     color: COLORS.PRIEST,
     discordId: "<:spell_holy_searinglight:1085631488671891457>",
     class: CLASSES.PRIEST,
+    spellsIds: [15261],
   },
   {
     imageUrl:
@@ -286,6 +315,7 @@ const DEBUFFS = [
     color: COLORS.ROGUE,
     discordId: "<:ability_rogue_dualweild:1085630711773544478>",
     class: CLASSES.ROGUE,
+    spellsIds: [20844, 8985],
   },
   {
     imageUrl:
@@ -295,6 +325,7 @@ const DEBUFFS = [
     color: COLORS.ROGUE,
     discordId: "<:ability_rogue_rupture:1085630714386591764>",
     class: CLASSES.ROGUE,
+    spellsIds: [11275],
   },
   {
     imageUrl:
@@ -304,6 +335,7 @@ const DEBUFFS = [
     color: COLORS.DRUID,
     discordId: "<:ability_druid_disembowel:1085630701136781473>",
     class: CLASSES.DRUID,
+    spellsIds: [9904],
   },
   {
     imageUrl:
@@ -313,6 +345,7 @@ const DEBUFFS = [
     color: COLORS.DRUID,
     discordId: "<:ability_ghoulfrenzy:1085630702835478589>",
     class: CLASSES.DRUID,
+    spellsIds: [9896],
   },
   {
     imageUrl:
@@ -322,6 +355,9 @@ const DEBUFFS = [
     color: COLORS.BLACK,
     discordId: "<:ability_backstab:1085608293789077535>",
     class: CLASSES.OTHER,
+    spellsIds: [
+      12867, 25306, 10151, 355, 14921, 6795, 1161, 20560, 12721, 7922,
+    ],
   },
   {
     imageUrl:
@@ -331,6 +367,7 @@ const DEBUFFS = [
     color: COLORS.HUNT,
     discordId: "<:ability_hunter_quickshot:1085608295882039357>",
     class: CLASSES.HUNT,
+    spellsIds: [13555, 25295],
   },
   {
     imageUrl:
@@ -340,6 +377,7 @@ const DEBUFFS = [
     color: COLORS.WARRIOR,
     discordId: "<:spell_nature_thunderclap:1085630968934703256>",
     class: CLASSES.WARRIOR,
+    spellsIds: [11581],
   },
   {
     imageUrl: "https://wow.zamimg.com/images/wow/icons/large/ability_gouge.jpg",
@@ -348,6 +386,7 @@ const DEBUFFS = [
     color: COLORS.WARRIOR,
     discordId: "<:ability_gouge:1085630705557590108>",
     class: CLASSES.WARRIOR,
+    spellsIds: [11574],
   },
   {
     imageUrl:
@@ -357,6 +396,7 @@ const DEBUFFS = [
     color: COLORS.DRUID,
     discordId: "<:spell_nature_insectswarm:1085632735944646687>",
     class: CLASSES.DRUID,
+    spellsIds: [24977],
   },
   {
     imageUrl: "https://wow.zamimg.com/images/wow/icons/large/inv_axe_12.jpg",
@@ -365,6 +405,7 @@ const DEBUFFS = [
     color: COLORS.BLACK,
     discordId: "<:inv_axe_12:1085630718245359670>",
     class: CLASSES.WARRIOR,
+    spellsIds: [16928],
   },
 ];
 
@@ -463,6 +504,7 @@ export default function Home({ location }) {
           class: debuff.class,
           discordId: debuff.discordId,
           shortName: debuff.shortName,
+          spellsIds: debuff.spellsIds,
         };
       }
       return item;
@@ -481,6 +523,7 @@ export default function Home({ location }) {
           class: debuff.class,
           discordId: debuff.discordId,
           shortName: debuff.shortName,
+          spellsIds: debuff.spellsIds,
         });
         return acc;
       } else {
@@ -875,7 +918,7 @@ export default function Home({ location }) {
                       }
                     }}
                   >
-                    Envoyer sur mon discord
+                    Webhook discord
                   </button>
                   <button
                     type="button"
@@ -885,6 +928,19 @@ export default function Home({ location }) {
                     }}
                   >
                     Copier l'URL
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-dark"
+                    onClick={() => {
+                      let debuffsString = "";
+                      each(authorizedDebuffs, ({ spellsIds }) => {
+                        debuffsString += spellsIds.join(",") + "\n";
+                      });
+                      navigator.clipboard.writeText(debuffsString);
+                    }}
+                  >
+                    Export WA
                   </button>
                 </div>
               </div>
