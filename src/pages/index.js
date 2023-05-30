@@ -77,7 +77,7 @@ const DEBUFFS = [
     color: COLORS.HUNT,
     discordId: "<:ability_hunter_snipershot:1085630710259384412>",
     class: CLASSES.HUNT,
-    spellsIds: [14324],
+    spellsIds: [14324, 14325],
   },
   {
     imageUrl:
