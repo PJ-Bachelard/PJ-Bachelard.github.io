@@ -951,3 +951,9 @@ export default function Home({ location }) {
     </>
   );
 }
+
+export const Head = () => (
+  <>
+    <title>Liste des débuffs</title>
+  </>
+);
