@@ -67,7 +67,7 @@ const DEBUFFS = [
     color: COLORS.DRUID,
     discordId: "<:spell_nature_faeriefire:1085630741091729518>",
     class: CLASSES.DRUID,
-    spellsIds: [9907],
+    spellsIds: [9907, 17392],
   },
   {
     imageUrl:
@@ -87,7 +87,7 @@ const DEBUFFS = [
     color: COLORS.WARLOCK,
     discordId: "<:spell_shadow_unholystrength:1085631603423850496>",
     class: CLASSES.WARLOCK,
-    spellsIds: [7659],
+    spellsIds: [7659, 11717],
   },
   {
     imageUrl:
@@ -356,7 +356,7 @@ const DEBUFFS = [
     discordId: "<:ability_backstab:1085608293789077535>",
     class: CLASSES.OTHER,
     spellsIds: [
-      12867, 25306, 10151, 355, 14921, 6795, 1161, 20560, 12721, 7922,
+      12867, 25306, 10151, 355, 14921, 6795, 1161, 20560, 12721, 7922, 20615,
     ],
   },
   {
