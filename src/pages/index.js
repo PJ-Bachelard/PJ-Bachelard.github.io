@@ -407,6 +407,33 @@ const DEBUFFS = [
     class: CLASSES.WARRIOR,
     spellsIds: [16928],
   },
+  {
+    imageUrl: "https://wow.zamimg.com/images/wow/icons/large/spell_holy_holysmite.jpg",
+    name: "Jugement du Croisé",
+    shortName: "Croisé",
+    color: COLORS.PALADIN,
+    discordId: "<:spell_holy_holysmite:1154730229617655839>",
+    class: CLASSES.PALADIN,
+    spellsIds: [20303],
+  },
+  {
+    imageUrl: "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_scourgebuild.jpg",
+    name: "Bru. de l'Ombre",
+    shortName: "Bru. Ombre",
+    color: COLORS.WARLOCK,
+    discordId: "<:spell_shadow_scourgebuild:1154731061138423848>",
+    class: CLASSES.WARLOCK,
+    spellsIds: [18871],
+  },
+  {
+    imageUrl: "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_curseofsargeras.jpg",
+    name: "Mal. d'Agonie",
+    shortName: "Mal. d'Agonie",
+    color: COLORS.WARLOCK,
+    discordId: "<:spell_shadow_curseofsargeras:1154731634705309786>",
+    class: CLASSES.WARLOCK,
+    spellsIds: [11713, 18830],
+  },
 ];
 
 const AUTHORIZED_DEBUFFS_INIT_STATE = [
