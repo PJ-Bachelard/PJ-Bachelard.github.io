@@ -13,6 +13,7 @@ const COLORS = {
   HUNT: "#AAD372",
   WARLOCK: "#8788EE",
   PRIEST: "#FFFFFF",
+  CHAMAN: "#2459FF",
   BLACK: "#000000",
 };
 
@@ -25,6 +26,7 @@ const CLASSES = {
   HUNT: { id: "hunt", label: "Chasseur" },
   WARLOCK: { id: "warlock", label: "Démoniste" },
   PRIEST: { id: "priest", label: "Prêtre" },
+  CHAMAN: { id: "chaman", label: "Chaman" },
   OTHER: { id: "other", label: "Autres" },
 };
 
@@ -433,6 +435,34 @@ const DEBUFFS = [
     discordId: "<:spell_shadow_curseofsargeras:1154731634705309786>",
     class: CLASSES.WARLOCK,
     spellsIds: [11713, 18830],
+  },
+  {
+    imageUrl: "https://wow.zamimg.com/images/wow/icons/large/ability_rogue_garrote.jpg",
+    name: "Garrot",
+    shortName: "Garrot",
+    color: COLORS.ROGUE,
+    discordId: "<:ability_rogue_garrote:1154797878238253076>",
+    class: CLASSES.ROGUE,
+    spellsIds: [11290]
+  }, 
+  {
+    imageUrl: "https://wow.zamimg.com/images/wow/icons/large/spell_fire_immolation.jpg",
+    name: "Immolation",
+    shortName: "Immolation",
+    color: COLORS.WARLOCK,
+    discordId: "<:spell_fire_immolation:1155140609930178620>",
+    class: CLASSES.WARLOCK,
+    spellsIds: [25309, 11667]
+  },
+  {
+    imageUrl:
+      "https://wow.zamimg.com/images/wow/icons/large/spell_holy_sealofmight.jpg",
+    name: "Courroux naturel",
+    shortName: "Courroux nat.",
+    color: COLORS.CHAMAN,
+    discordId: "<:spell_holy_sealofmight:1187747632425222335>",
+    class: CLASSES.CHAMAN,
+    spellsIds: [17364],
   },
 ];
 
