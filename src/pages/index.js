@@ -402,11 +402,11 @@ const DEBUFFS = [
   },
   {
     imageUrl: "https://wow.zamimg.com/images/wow/icons/large/inv_axe_12.jpg",
-    name: "Annihilateur",
-    shortName: "Annihilateur",
+    name: "Crépuscule",
+    shortName: "Crépuscule",
     color: COLORS.BLACK,
     discordId: "<:inv_axe_12:1085630718245359670>",
-    class: CLASSES.WARRIOR,
+    class: CLASSES.OTHER,
     spellsIds: [16928],
   },
   {
